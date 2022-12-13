@@ -1,5 +1,9 @@
 [![](https://images.microbadger.com/badges/image/kevineye/heyu.svg)](https://microbadger.com/images/kevineye/heyu "Get your own image badge on microbadger.com")
 
+This is in active development attempt to create docker-compose version that will run in docker/portainer alongside home assistant. Based on cuetus version which was based on kevineye version. I was unable to get cuetus version running correctly.
+
+Below will be edited on completion. 
+
 This is a dockerized [heyu](http://www.heyu.org/) for controlling and monitoring X10 home automation devices via a CM11A module.
 
 ## Setup
