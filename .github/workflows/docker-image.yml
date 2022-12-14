@@ -17,5 +17,5 @@ jobs:
     - name: Build & Push the Docker image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "roblowe8" --password-stdin
-        docker image build -t roblowe8/docker-compose-heyu-mqtt .
+        docker image build -t roblowe8/docker-compose-heyu-mqtt --platform linux/amd64,linux/arm64,linux/arm/v7 -t baget:multi-arch.
         docker push roblowe8/docker-compose-heyu-mqtt

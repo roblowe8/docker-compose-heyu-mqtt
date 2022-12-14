@@ -7,8 +7,7 @@ if [ ! -f /etc/heyu/x10.conf ]; then
   exit;
 fi
 
-echo "heyu engine" >> /var/log/homeautomation/homeautomation.log
-heyu engine  >> /var/log/homeautomation/homeautomation.log
+heyu engine 1>&2
 heyu upload 1>&2
 heyu setclock 1>&2
 
