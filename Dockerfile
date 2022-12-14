@@ -9,8 +9,7 @@ RUN apk -U add curl build-base perl-sub-name \
  && echo 'f02fa53b866343f05d57a2ac87c7f7b39c786295 *heyu-2.11-rc1.tar.gz' | sha1sum -c - \
  && tar xzf heyu-2.11-rc1.tar.gz \
  && cd heyu-2.11-rc1 \
- && ./Configure.sh -nocm17a \
- && ./Configure.sh --sysconfdir=/etc \
+ && ./configure --sysconfdir=/etc \
  && make \
  && make install \
  && cd / \
