@@ -8,8 +8,8 @@ if [ ! -f /etc/heyu/x10.conf ]; then
 fi
 
 heyu engine 1>&2
-heyu upload 1>&2
-heyu setclock 1>&2
+# heyu upload 1>&2
+# heyu setclock 1>&2
 
 if [ -z "$URL_KEY" ]; then
     export prefix="/"

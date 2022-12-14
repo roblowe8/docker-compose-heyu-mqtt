@@ -3,6 +3,7 @@ use strict;
 
 use AnyEvent::MQTT;
 use AnyEvent::Run;
+print "use statements successful"
 
 my $config = {
     mqtt_host => $ENV{MQTT_HOST} || 'localhost',
