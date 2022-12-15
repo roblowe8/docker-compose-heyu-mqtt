@@ -20,4 +20,4 @@ else
 fi
 
 echo "ready to run perl script." #1>&2
-perl heyu-mqtt.pl
+perl /etc/heyu/heyu-mqtt.pl
