@@ -17,7 +17,7 @@ FROM docker.io/library/ubuntu:latest@sha256:ea8f467d512068a1e52494d5b2d959a9307a
 
 VOLUME /etc/heyu
 
-RUN ["sh", "-c", "mkdir -p /usr/local/bin/heyu-run"]
+RUN ["/bin/sh", "-c", "mkdir -p /usr/local/bin/heyu-run"]
 #RUN mkdir /usr/local/bin/heyu-mqtt
 #RUN chmod 777 -R /usr/local/bin/heyu-run
 #RUN chmod 777 -R /usr/local/bin/heyu-mqtt
