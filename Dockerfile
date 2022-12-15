@@ -29,5 +29,5 @@ COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
-ENTRYPOINT []
+ENTRYPOINT ["bash","entrypoint.sh"]
 CMD heyu-run
