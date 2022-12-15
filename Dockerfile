@@ -32,5 +32,7 @@ RUN chmod 777 -R /usr/local/bin/heyu-mqtt
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
+RUN echo 'Call heyu-run command'
+
 #ENTRYPOINT ["sh","/run.sh"]
 CMD /usr/local/bin/heyu-run/heyu-run.sh
