@@ -21,15 +21,15 @@ VOLUME /etc/heyu
 #RUN mkdir /usr/local/bin/heyu-mqtt
 #RUN chmod 777 -R /usr/local/bin/heyu-run
 #RUN chmod 777 -R /usr/local/bin/heyu-mqtt
-COPY heyu-run.sh /usr/local/bin
-COPY heyu-mqtt.pl /usr/local/bin
+COPY heyu-run.sh /opt/heyu
+COPY heyu-mqtt.pl /opt/heyu
 #RUN chmod 777 /usr/local/bin/heyu-run.sh
 #RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD /usr/local/bin/heyu-run.sh
+CMD /opt/heyu/heyu-run.sh
 
 
 #FROM arm32v7/nginx:alpine-perl
