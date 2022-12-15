@@ -1,3 +1,4 @@
+#!/bin/sh
 FROM avastsoftware/alpine-perl
 MAINTAINER Kevin Eye <kevineye@gmail.com>
 
