@@ -1,6 +1,8 @@
 FROM avastsoftware/alpine-perl
 MAINTAINER Kevin Eye <kevineye@gmail.com>
 
+RUN echo 'starting Dockerfile run section'
+
 RUN apk -U add curl build-base perl-sub-name \
  && curl -sL https://cpanmin.us | perl - --no-wget --notest AnyEvent::MQTT AnyEvent::Run \
  && mkdir /build \
