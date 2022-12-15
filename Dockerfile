@@ -1,3 +1,4 @@
+DOCKER_BUILDKIT=0
 FROM avastsoftware/alpine-perl
 MAINTAINER Kevin Eye <kevineye@gmail.com>
 
@@ -37,4 +38,4 @@ ENV PERL_ANYEVENT_VERBOSE=7
 RUN echo 'Call heyu-run command'
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD sh /usr/local/bin/heyu-run/heyu-run.sh
+CMD sh ./heyu-run.sh
