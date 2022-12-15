@@ -1,4 +1,5 @@
-FROM --platform=linux/arm/v7 ubuntu:latest 
+#FROM --platform=linux/arm/v7 ubuntu:latest 
+FROM docker.io/library/ubuntu:latest@sha256:ca82b3c78a23b75345429f192c4b1f88b4e49e12808c85fccc2db04823c17d4e
 #RUN mkdir ./build
 # && cd ./build \
 # && wget https://github.com/HeyuX10Automation/heyu/archive/refs/tags/v2.10.3.tar.gz \
