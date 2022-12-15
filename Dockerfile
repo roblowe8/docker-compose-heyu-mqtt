@@ -17,13 +17,13 @@ FROM ubuntu:latest
 
 VOLUME /etc/heyu
 
-COPY heyu-run.sh /usr/local/bin/heyu-run
-COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
+COPY heyu-run.sh /usr/local/bin
+COPY heyu-mqtt.pl /usr/local/bin
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD sh /usr/local/bin/heyu-run/heyu-run.sh
+CMD /usr/local/bin/heyu-run.sh
 
 
 #FROM arm32v7/nginx:alpine-perl
