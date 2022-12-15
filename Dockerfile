@@ -1,4 +1,4 @@
-FROM --platform=linux/arm32v7 ubuntu:latest 
+FROM --platform=linux/arm/v7 ubuntu:latest 
 #RUN mkdir ./build
 # && cd ./build \
 # && wget https://github.com/HeyuX10Automation/heyu/archive/refs/tags/v2.10.3.tar.gz \
