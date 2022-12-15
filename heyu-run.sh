@@ -18,4 +18,4 @@ else
     export prefix="/$URL_KEY/"
 fi
 
-/usr/local/bin/heyu-mqtt/heyu-mqtt.pl
+perl /usr/local/bin/heyu-mqtt/heyu-mqtt.pl
