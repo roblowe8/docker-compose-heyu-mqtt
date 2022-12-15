@@ -35,4 +35,4 @@
 #RUN echo 'Call heyu-run command'
 
 #ENTRYPOINT ["sh","/run.sh"]
-#CMD ["sh", "./heyu-run.sh"]
+CMD ["sh", "./heyu-run.sh"]
