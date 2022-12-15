@@ -17,13 +17,13 @@ FROM arm32v7/nginx:alpine-perl
 # && apk --purge del curl build-base \
 # && rm -rf /build /root/.cpanm /etc/ssl /var/cache/apk/* /lib/apk/db/*
 
-#RUN apk -U add curl -LsSO http://www.heyu.org/download/heyu-2.11-rc1.tar.gz \
-# && echo 'f02fa53b866343f05d57a2ac87c7f7b39c786295 *heyu-2.11-rc1.tar.gz' | sha1sum -c - \
-# && tar xzf heyu-2.11-rc1.tar.gz \
-# && cd heyu-2.11-rc1 \
-# && ./configure --sysconfdir=/etc \
-# && make \
-# && make install 
+RUN apk -U add curl -LsSO http://www.heyu.org/download/heyu-2.11-rc1.tar.gz \
+ && echo 'f02fa53b866343f05d57a2ac87c7f7b39c786295 *heyu-2.11-rc1.tar.gz' | sha1sum -c - \
+ && tar xzf heyu-2.11-rc1.tar.gz \
+ && cd heyu-2.11-rc1 \
+ && ./configure --sysconfdir=/etc \
+ && make \
+ && make install 
 
 RUN cp -r /etc/heyu /etc/heyu.default \
  && mkdir -p /usr/local/var/tmp/heyu \
