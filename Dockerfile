@@ -1,26 +1,26 @@
 FROM ubuntu:latest
 
 RUN mkdir ./build \
- && cd ./build \
- && wget https://github.com/HeyuX10Automation/heyu/archive/refs/tags/v2.10.3.tar.gz \
- && tar xf v2.10.3.tar.gz \
- && cd heyu-2.10.3 \
- && sh ./Configure -nocm17a \
- && make \
- && sudo make install \
- && cd .. \
- && rm -r ./build \
- && mkdir -p /usr/local/var/tmp/heyu \
- && mkdir -p /usr/local/var/lock \
- && chmod 777 -R /usr/local/var/tmp/heyu \
- && chmod 777 -R /usr/local/var/lock
+# && cd ./build \
+# && wget https://github.com/HeyuX10Automation/heyu/archive/refs/tags/v2.10.3.tar.gz \
+# && tar xf v2.10.3.tar.gz \
+# && cd heyu-2.10.3 \
+# && sh ./Configure -nocm17a \
+# && make \
+# && sudo make install \
+# && cd .. \
+# && rm -r ./build \
+# && mkdir -p /usr/local/var/tmp/heyu \
+# && mkdir -p /usr/local/var/lock \
+# && chmod 777 -R /usr/local/var/tmp/heyu \
+# && chmod 777 -R /usr/local/var/lock
 
 VOLUME /etc/heyu
 
-COPY heyu-run.sh /usr/local/bin/heyu-run
-COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
+#COPY heyu-run.sh /usr/local/bin/heyu-run
+#COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
 
-ENV PERL_ANYEVENT_VERBOSE=7
+#ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
 CMD sh /usr/local/bin/heyu-run/heyu-run.sh
