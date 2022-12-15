@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f /etc/heyu/x10.conf ]; then
+if [ ! -f /etc/heyu/x10config ]; then
   cp /etc/heyu.default/* /etc/heyu
   echo "x10config.sample and x10.sched.sample have been copied to your config directory."  #1>&2
   echo "Please use them to create x10.conf and x10.sched and re-run." #1>&2

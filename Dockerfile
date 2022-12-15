@@ -30,4 +30,4 @@ COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
 ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD heyu-run
+CMD /usr/local/bin/heyu-run/heyu-run.sh
