@@ -27,8 +27,8 @@ VOLUME /etc/heyu
 COPY heyu-run.sh /usr/local/bin/heyu-run
 COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
 
-RUN chmod +x /usr/local/bin/heyu-run/heyu-run.sh
-RUN chmod +x /usr/local/bin/heyu-mqtt/heyu-mqtt.pl
+RUN chmod 777 -R /usr/local/bin/heyu-run/heyu-run.sh
+RUN chmod 777 -R /usr/local/bin/heyu-mqtt/heyu-mqtt.pl
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
