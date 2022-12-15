@@ -17,14 +17,14 @@ FROM docker.io/library/ubuntu:latest@sha256:ea8f467d512068a1e52494d5b2d959a9307a
 
 VOLUME /etc/heyu
 
-RUN ["/bin/sh", "-c", "mkdir -p /usr/local/bin/heyu-run"]
+#RUN ["/bin/sh", "-c", "mkdir -p /usr/local/bin/heyu-run"]
 #RUN mkdir /usr/local/bin/heyu-mqtt
 #RUN chmod 777 -R /usr/local/bin/heyu-run
 #RUN chmod 777 -R /usr/local/bin/heyu-mqtt
-#COPY heyu-run.sh /usr/local/bin/heyu-run
-#COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
-#RUN chmod 777 /usr/local/bin/heyu-run.sh
-#RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
+COPY heyu-run.sh /usr/local/bin/heyu-run
+COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
+RUN chmod 777 /usr/local/bin/heyu-run.sh
+RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
