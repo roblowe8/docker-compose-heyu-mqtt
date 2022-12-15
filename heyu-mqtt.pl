@@ -3,7 +3,7 @@ use strict;
 
 use AnyEvent::MQTT;
 use AnyEvent::Run;
-print "use statements successful"
+use AnyEvent::Log;
 
 my $config = {
     mqtt_host => $ENV{MQTT_HOST} || 'localhost',
@@ -75,9 +75,12 @@ sub process_heyu_cmd {
     }
 }
 
+#$mqtt->subscribe(topic => "$config->{mqtt_prefix}/+/set", callback => \&receive_mqtt_set);
+
 $mqtt->subscribe(topic => "$config->{mqtt_prefix}/+/set", callback => \&receive_mqtt_set)->cb(sub {
     AE::log note => "subscribed to MQTT topic $config->{mqtt_prefix}/+/set";
 });
+
 
 my $monitor = AnyEvent::Run->new(
     cmd => [ $config->{heyu_cmd}, 'monitor' ],
