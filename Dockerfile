@@ -2,7 +2,7 @@
 FROM docker.io/library/ubuntu:latest@sha256:ea8f467d512068a1e52494d5b2d959a9307a35682633d0b5d481e79c914c627f
 SHELL ["bin/sh", "-c"]
 
-RUN cd /opt \
+RUN cd /etc \
 # && mkdir ./build \
 # && cd ./build \
 # && wget https://github.com/HeyuX10Automation/heyu/archive/refs/tags/v2.10.3.tar.gz \
@@ -24,8 +24,8 @@ RUN cd /opt \
 #RUN mkdir /usr/local/bin/heyu-mqtt
 #RUN chmod 777 -R /usr/local/bin/heyu-run
 #RUN chmod 777 -R /usr/local/bin/heyu-mqtt
-COPY heyu-run.sh /opt/heyu
-COPY heyu-mqtt.pl /opt/heyu
+#COPY heyu-run.sh /opt/heyu
+#COPY heyu-mqtt.pl /opt/heyu
 #RUN chmod 777 /usr/local/bin/heyu-run.sh
 #RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
 
