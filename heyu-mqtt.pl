@@ -14,6 +14,7 @@ my $config = {
     mqtt_retain_re => qr/$ENV{MQTT_RETAIN_RE}/i || qr//, # retain everything
     heyu_cmd => $ENV{HEYU_CMD} || 'heyu',
 };
+print "$config\n";
 
 my $mqtt = AnyEvent::MQTT->new(
     host => $config->{mqtt_host},
@@ -21,6 +22,7 @@ my $mqtt = AnyEvent::MQTT->new(
     user_name => $config->{mqtt_user},
     password => $config->{mqtt_password},
 );
+print "$mqtt\n";
 
 sub receive_mqtt_set {
     my ($topic, $message) = @_;
@@ -33,11 +35,19 @@ sub receive_mqtt_set {
         AE::log info => "switching device $device $message";
         system($config->{heyu_cmd}, lc $message, $device);
     } 
+print "receive mqtt set\n";
+print "$topic\n";
+print "$message\n";
+print "$device\n";
 }
 
 sub send_mqtt_status {
     my ($device, $status, $dimlevel) = @_;
     $mqtt->publish(topic => "$config->{mqtt_prefix}/$device", message => sprintf('{"device":"%s", "state":"%s", "level":"%s"}',$device, $status ? 'ON' : 'OFF',$dimlevel), retain => scalar($device =~ $config->{mqtt_retain_re}));
+print "send mqtt status\n";
+print "$device\n";
+print "$status\n";
+print "$dimlevel\n";
 }
 
 my $addr_queue = {};
@@ -62,6 +72,7 @@ sub process_heyu_line {
 	process_heyu_cmd(lc $cmd, "$house$unit", $level);                                                                                                                              
     }
 }
+print "$addr_queue\n";
 
 sub process_heyu_cmd {
     my ($cmd, $device, $level) = @_;
@@ -75,11 +86,14 @@ sub process_heyu_cmd {
     }
 }
 
-#$mqtt->subscribe(topic => "$config->{mqtt_prefix}/+/set", callback => \&receive_mqtt_set);
+print "$config->{mqtt_prefix}/+/set\n";
+print "\&receive_mqtt_set\n";
 
-$mqtt->subscribe(topic => "$config->{mqtt_prefix}/+/set", callback => \&receive_mqtt_set)->cb(sub {
-    AE::log note => "subscribed to MQTT topic $config->{mqtt_prefix}/+/set";
-});
+$mqtt->subscribe(topic => "$config->{mqtt_prefix}/+/set", callback => \&receive_mqtt_set);
+
+#$mqtt->subscribe(topic => "$config->{mqtt_prefix}/+/set", callback => \&receive_mqtt_set)->cb(sub {
+#    AE::log note => "subscribed to MQTT topic $config->{mqtt_prefix}/+/set";
+#});
 
 
 my $monitor = AnyEvent::Run->new(
@@ -93,5 +107,7 @@ my $monitor = AnyEvent::Run->new(
         AE::log error => "error running heyu monitor: $msg";
     },
 );
+print "$monitor\n";
 
+print "recv\n";
 AnyEvent->condvar->recv;
