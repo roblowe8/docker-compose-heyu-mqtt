@@ -22,6 +22,14 @@
 # && chmod 777 -R /usr/local/var/tmp/heyu \
 # && chmod 777 -R /usr/local/var/lock
 
+RUN apk -U add curl -LsSO http://www.heyu.org/download/heyu-2.11-rc1.tar.gz \
+ && echo 'f02fa53b866343f05d57a2ac87c7f7b39c786295 *heyu-2.11-rc1.tar.gz' | sha1sum -c - \
+ && tar xzf heyu-2.11-rc1.tar.gz \
+ && cd heyu-2.11-rc1 \
+ && ./configure --sysconfdir=/etc \
+ && make \
+ && make install 
+
 VOLUME /etc/heyu
 
 #COPY heyu-run.sh /usr/local/bin/heyu-run
