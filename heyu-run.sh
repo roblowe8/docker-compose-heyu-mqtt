@@ -8,6 +8,7 @@ if [ ! -f /etc/heyu/x10.conf ]; then
 fi
 
 heyu engine 1>&2
+heyu start 1>&2
 # heyu upload 1>&2
 # heyu setclock 1>&2
 
@@ -17,4 +18,4 @@ else
     export prefix="/$URL_KEY/"
 fi
 
-exec heyu-mqtt
+/usr/local/bin/heyu-mqtt/heyu-mqtt.pl
