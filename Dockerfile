@@ -22,7 +22,7 @@
 # && chmod 777 -R /usr/local/var/tmp/heyu \
 # && chmod 777 -R /usr/local/var/lock
 
-#VOLUME /etc/heyu
+VOLUME /etc/heyu
 
 #COPY heyu-run.sh /usr/local/bin/heyu-run
 #COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
@@ -30,7 +30,7 @@
 #RUN chmod 777 -R /usr/local/bin/heyu-run
 #RUN chmod 777 -R /usr/local/bin/heyu-mqtt
 
-#ENV PERL_ANYEVENT_VERBOSE=7
+ENV PERL_ANYEVENT_VERBOSE=7
 
 #RUN echo 'Call heyu-run command'
 
