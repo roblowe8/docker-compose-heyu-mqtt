@@ -1,4 +1,3 @@
-DOCKER_BUILDKIT=0
 FROM avastsoftware/alpine-perl
 MAINTAINER Kevin Eye <kevineye@gmail.com>
 
