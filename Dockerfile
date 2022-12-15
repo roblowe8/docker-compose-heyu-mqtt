@@ -44,5 +44,4 @@ FROM arm32v7/nginx:alpine-perl
 #RUN echo 'Call heyu-run command'
 
 #ENTRYPOINT ["sh","/run.sh"]
-#CMD sh ./heyu-run.sh
-CMD heyu-run
+CMD sh ./heyu-run.sh
