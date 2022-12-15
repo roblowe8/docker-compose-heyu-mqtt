@@ -18,7 +18,7 @@ RUN cd /opt \
 # && chmod 777 -R /usr/local/var/tmp/heyu \
 # && chmod 777 -R /usr/local/var/lock
 
-VOLUME /etc/heyu
+# VOLUME /etc/heyu
 
 #RUN ["/bin/sh", "-c", "mkdir -p /usr/local/bin/heyu-run"]
 #RUN mkdir /usr/local/bin/heyu-mqtt
@@ -29,7 +29,7 @@ COPY heyu-mqtt.pl /opt/heyu
 #RUN chmod 777 /usr/local/bin/heyu-run.sh
 #RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
 
-ENV PERL_ANYEVENT_VERBOSE=7
+#ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
 CMD /etc/heyu/heyu-run.sh
