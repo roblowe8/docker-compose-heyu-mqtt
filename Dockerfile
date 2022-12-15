@@ -1,4 +1,3 @@
-#!/bin/sh
 FROM avastsoftware/alpine-perl
 MAINTAINER Kevin Eye <kevineye@gmail.com>
 
@@ -30,5 +29,5 @@ COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
-ENTRYPOINT ["sh","entrypoint.sh"]
+ENTRYPOINT ["sh","/run.sh"]
 CMD heyu-run
