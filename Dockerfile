@@ -16,14 +16,14 @@ FROM --platform=linux/arm/v7 ubuntu:latest
 
 VOLUME /etc/heyu
 
-RUN mkdir /usr/local/bin/heyu-run
-RUN mkdir /usr/local/bin/heyu-mqtt
-RUN chmod 777 -R /usr/local/bin/heyu-run
-RUN chmod 777 -R /usr/local/bin/heyu-mqtt
-COPY heyu-run.sh /usr/local/bin/heyu-run
-COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
-RUN chmod 777 /usr/local/bin/heyu-run.sh
-RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
+RUN ["sh", "-c", "mkdir -p /usr/local/bin/heyu-run"]
+#RUN mkdir /usr/local/bin/heyu-mqtt
+#RUN chmod 777 -R /usr/local/bin/heyu-run
+#RUN chmod 777 -R /usr/local/bin/heyu-mqtt
+#COPY heyu-run.sh /usr/local/bin/heyu-run
+#COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
+#RUN chmod 777 /usr/local/bin/heyu-run.sh
+#RUN chmod 777 /usr/local/bin/heyu-mqtt.pl
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
