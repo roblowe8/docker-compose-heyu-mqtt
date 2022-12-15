@@ -18,30 +18,30 @@ FROM arm32v7/nginx:alpine-perl
 # && rm -rf /build /root/.cpanm /etc/ssl /var/cache/apk/* /lib/apk/db/*
 
 RUN apk -U add curl -LsSO http://www.heyu.org/download/heyu-2.11-rc1.tar.gz \
- && echo 'f02fa53b866343f05d57a2ac87c7f7b39c786295 *heyu-2.11-rc1.tar.gz' | sha1sum -c - \
- && tar xzf heyu-2.11-rc1.tar.gz \
- && cd heyu-2.11-rc1 \
- && ./configure --sysconfdir=/etc \
- && make \
- && make install 
+# && echo 'f02fa53b866343f05d57a2ac87c7f7b39c786295 *heyu-2.11-rc1.tar.gz' | sha1sum -c - \
+# && tar xzf heyu-2.11-rc1.tar.gz \
+# && cd heyu-2.11-rc1 \
+# && ./configure --sysconfdir=/etc \
+# && make \
+# && make install 
 
-RUN cp -r /etc/heyu /etc/heyu.default \
- && mkdir -p /usr/local/var/tmp/heyu \
- && mkdir -p /usr/local/var/lock \
- && chmod 777 -R /usr/local/var/tmp/heyu \
- && chmod 777 -R /usr/local/var/lock
+#RUN cp -r /etc/heyu /etc/heyu.default \
+# && mkdir -p /usr/local/var/tmp/heyu \
+# && mkdir -p /usr/local/var/lock \
+# && chmod 777 -R /usr/local/var/tmp/heyu \
+# && chmod 777 -R /usr/local/var/lock
 
-VOLUME /etc/heyu
+#VOLUME /etc/heyu
 
-COPY heyu-run.sh /usr/local/bin/heyu-run
-COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
+#COPY heyu-run.sh /usr/local/bin/heyu-run
+#COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
 
-RUN chmod 777 -R /usr/local/bin/heyu-run
-RUN chmod 777 -R /usr/local/bin/heyu-mqtt
+#RUN chmod 777 -R /usr/local/bin/heyu-run
+#RUN chmod 777 -R /usr/local/bin/heyu-mqtt
 
-ENV PERL_ANYEVENT_VERBOSE=7
+#ENV PERL_ANYEVENT_VERBOSE=7
 
 #RUN echo 'Call heyu-run command'
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD sh /usr/local/bin/heyu-run/heyu-run.sh
+#CMD sh /usr/local/bin/heyu-run/heyu-run.sh
