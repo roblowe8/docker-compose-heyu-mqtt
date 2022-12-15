@@ -29,7 +29,7 @@ COPY heyu-mqtt.pl /opt/heyu
 ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD /opt/heyu/heyu-run.sh
+CMD heyu-run.sh
 
 
 #FROM arm32v7/nginx:alpine-perl
