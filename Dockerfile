@@ -19,13 +19,16 @@ RUN apk -U add curl build-base perl-sub-name \
 RUN cp -r /etc/heyu /etc/heyu.default \
  && mkdir -p /usr/local/var/tmp/heyu \
  && mkdir -p /usr/local/var/lock \
- && chmod 777 /usr/local/var/tmp/heyu \
- && chmod 777 /usr/local/var/lock
+ && chmod 777 -R /usr/local/var/tmp/heyu \
+ && chmod 777 -R /usr/local/var/lock
 
 VOLUME /etc/heyu
 
 COPY heyu-run.sh /usr/local/bin/heyu-run
 COPY heyu-mqtt.pl /usr/local/bin/heyu-mqtt
+
+RUN chmod +x /usr/local/bin/heyu-run/heyu-run.sh
+RUN chmod +x /usr/local/bin/heyu-mqtt/heyu-mqtt.pl
 
 ENV PERL_ANYEVENT_VERBOSE=7
 
