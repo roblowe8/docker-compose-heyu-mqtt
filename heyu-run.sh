@@ -7,6 +7,7 @@ if [ ! -f /etc/heyu/x10config ]; then
   exit;
 fi
 
+heyu stop #1>&2
 heyu engine #1>&2
 heyu start #1>&2
 # heyu upload 1>&2
@@ -19,4 +20,4 @@ else
 fi
 
 echo "ready to run perl script." #1>&2
-perl /usr/local/bin/heyu-mqtt/heyu-mqtt.pl
+perl ./heyu-mqtt.pl
