@@ -2,6 +2,8 @@
 FROM docker.io/library/ubuntu:latest@sha256:ea8f467d512068a1e52494d5b2d959a9307a35682633d0b5d481e79c914c627f
 SHELL ["bin/sh", "-c"]
 
+RUN apt-get update
+
 RUN cd /etc 
 # && mkdir ./build \
 # && cd ./build \
@@ -32,7 +34,7 @@ RUN cd /etc
 #ENV PERL_ANYEVENT_VERBOSE=7
 
 #ENTRYPOINT ["sh","/run.sh"]
-CMD /etc/heyu/heyu-run.sh
+#CMD /etc/heyu/heyu-run.sh
 
 
 #FROM arm32v7/nginx:alpine-perl
