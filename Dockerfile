@@ -1,6 +1,7 @@
 #FROM --platform=linux/arm/v7 ubuntu:latest 
 FROM ubuntu
 #FROM docker.io/library/ubuntu:latest@sha256:ea8f467d512068a1e52494d5b2d959a9307a35682633d0b5d481e79c914c627f
+SHELL ["bash"]
 
 RUN apt-get update
 
