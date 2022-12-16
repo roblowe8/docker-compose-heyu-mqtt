@@ -5,7 +5,7 @@ SHELL ["bash"]
 
 RUN apt-get update
 
-RUN cd /etc 
+#RUN cd /etc 
 # && mkdir ./build \
 # && cd ./build \
 # && wget https://github.com/HeyuX10Automation/heyu/archive/refs/tags/v2.10.3.tar.gz \
